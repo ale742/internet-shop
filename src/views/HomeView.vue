@@ -1,5 +1,5 @@
 <script setup>
-import { useCategoryStore } from '@/stores/category';
+import { useCategoryStore } from '@/stores/Category';
 import { useProductStore } from '@/stores/product';
 import { ref,} from 'vue'
 
