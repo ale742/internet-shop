@@ -1,102 +1,65 @@
 <script setup>
+import { useCategoryStore } from '@/stores/category';
+import { useProductStore } from '@/stores/product';
+import { ref,} from 'vue'
 
+const productsStore =useProductStore();
+const categoryStore =useCategoryStore();
+const category = ref(null);
+const searchText = ref("");
+const products = ref([]);
+products.value = productsStore.products;
+const filterCategory = () => {
+  products.value = productsStore.filterProductsByCategoryName(category.value, null);
+}
+const searchName = () => {
+  category.value = null;
+  products.value = productsStore.filterProductsByCategoryName(null, searchText.value);
+}
 </script>
 
 <template>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col md-5">
+      <select class="form-select" aria-label="Default select example" v-model="category" @change=filterCategory >
+  <option selected >Select category</option>
+  <option v-for="category in categoryStore.categories"
+  :value="category"
+  :key="category"
+  >{{ category }}
+</option>
 
-    <div class="row mt-4">
-        <div class="col-md-5">
-            <select class="form-select" aria-label="Default select example">
-  <option selected>Select category</option>
-  <option value="1">Vegetables</option>
-  <option value="2">fruit</option>
-  <option value="3">Berry</option>
 </select>
-         </div>
-         <div class="col-md-5">
-            <input type="email" class="form-control"  placeholder="shary be name">
-
-         </div>
-         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-warning" Disabled>reset</button>
-
-        </div>
-    </div>
-    <div class="row row-cols-1 row-cols-md-4  g-5 mt-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="https://avatars.mds.yandex.net/i?id=7b2932ef8dab2b2da9d9dae4ee1fff0bb605f350cac39e68-12740958-images-thumbs&n=13" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Banana</h5>
-        <p class="card-text">$15</p>
-        <p class="card-text">fruit</p>
-      </div>
-      <button type="button" class="btn btn-outline-info me-2">Datail</button>
-      <button type="button" class="btn btn-outline-success">cart</button>
-    </div>
-  </div>
-
-
-
-  <div class="row mt-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="https://avatars.mds.yandex.net/i?id=48d94e56a67714f947573d4198c7be1e_l-5303693-images-thumbs&n=13" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">apple</h5>
-        <p class="card-text">$10</p>
-        <p class="card-text">fruit</p>
-      </div> 
-      <button type="button" class="btn btn-outline-info me-2">Datail</button>
-      <button type="button" class="btn btn-outline-success">cart</button>
-</div> 
-  </div>  
-   </div>
- 
-  <div class="row mt-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="https://avatars.mds.yandex.net/i?id=7fce04810ac5567adb743e9bdca0bfb98569fe5d-12475602-images-thumbs&n=13" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">маракуя</h5>
-        <p class="card-text">$20</p>
-        <p class="card-text">fruit</p>
-      </div>
-      <button type="button" class="btn btn-outline-info me-2" >Datail</button>
-      <button type="button" class="btn btn-outline-success" >cart</button>
-
-    </div>
-    </div>
-  </div>
-  <div class="row mt-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="https://avatars.mds.yandex.net/i?id=ca0d609e1c307cdc2f08db16feb54c3b55deea87-5316097-images-thumbs&n=13" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">kivi</h5>
-        <p class="card-text">$16</p>
-        <p class="card-text">fruit</p>
-      </div>
-      <button type="button" class="btn btn-outline-info me-2" >Datail</button>
-      <button type="button" class="btn btn-outline-success" >cart</button>
-    </div>
-  </div>
-  </div>
-  <div class="row mt-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="https://produktoff.kz/pictures/product/big/6933_big.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">grape</h5>
-        <p class="card-text">$10</p>
-        <p class="card-text">Berry</p>
-      </div> 
-      <button type="button" class="btn btn-outline-info me-2">Datail</button>
-      <button type="button" class="btn btn-outline-success">cart</button>
-</div> 
-  </div>  
-   </div>
 </div>
+      <div class="col md-5">
+        <input type="text" class="form-control" value="Search by name" aria-label="readonly input example" v-model="searchText" @input="searchName">
+      </div>
+        <div class="col md-2">
+          <button type="button" class="btn btn-outline-warning">reset</button>
+    
+     
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" v-for="product in products" :key="product.id">
+    <div class="card">
+      <img :src="product.img" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">${{ product.price }}</p>
+        <p class="card-text">{{ product.category }}</p>
+        <p class="card-text">Date:{{ product.publish_at }}</p>
+        
+        <div class="card-footer text-end">
+          <button type="button" class="btn btn-outline-info">Detail</button>
+          <button type="button" class="btn btn-outline-success">Cart</button>
+        </div>
+      </div>
+    </div>
 
-
+  </div>
+  
+</div>
+  </div>
+</div>
 </template>

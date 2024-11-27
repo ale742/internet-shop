@@ -4,6 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <RouterLink to="/" class="navbar-brand">ShopFruit</RouterLink>
@@ -12,15 +13,17 @@ import { RouterLink, RouterView } from 'vue-router'
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-         <li class="nav-item">
-         <RouterLink to="/" class="nav-link">Home</RouterLink>
-         </li>
-         <li class="nav-item">
-         <a class="nav-link" href="#">Cart</a>
-         </li>
-         <li class="nav-item">
-         <RouterLink to="/About" class="nav-link">About</RouterLink>
-         </li>
+        <li class="nav-item">
+          
+          <RouterLink to="/" class="nav-link">Home</RouterLink>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cart</a>
+        </li>
+        <li class="nav-item">
+       
+          <RouterLink to="/About" class="nav-link">About</RouterLink>
+        </li>
       </ul>
     </div>
   </div>
@@ -28,5 +31,3 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <RouterView/>
 </template>
-
-
