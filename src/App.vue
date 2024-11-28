@@ -18,7 +18,7 @@ import { RouterLink, RouterView } from 'vue-router'
           <RouterLink to="/" class="nav-link">Home</RouterLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Cart</a>
+          <RouterLink to="/Cart" class="nav-link">Cart</RouterLink>
         </li>
         <li class="nav-item">
        
