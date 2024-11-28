@@ -46,12 +46,13 @@ const searchName = () => {
       <img :src="product.img" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">${{ product.description }}</p>
         <p class="card-text">${{ product.price }}</p>
         <p class="card-text">{{ product.category }}</p>
         <p class="card-text">Date:{{ product.publish_at }}</p>
         
         <div class="card-footer text-end">
-          <button type="button" class="btn btn-outline-info">Detail</button>
+            <button type="button" @click="$router.push(`/detail/${product.id}`)" class="btn btn-outline-danger m-2">Detail</button>
           <button type="button" class="btn btn-outline-success">Cart</button>
         </div>
       </div>
