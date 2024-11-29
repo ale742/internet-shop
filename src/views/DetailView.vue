@@ -28,3 +28,6 @@ const product = productStore.findProductById(route.params.id);
   </div>
 </div>
 </template>
+
+
+

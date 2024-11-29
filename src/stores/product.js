@@ -6,38 +6,38 @@ export const useProductStore = defineStore('product', () => {
 const products = ref([
     {
 id: 1,
-name: 'ASUS ROG MAXIMUS Z690 EXTREME GLACIAL',
-img: 'https://ants.kz/upload/resize_cache/webp/iblock/e98/450_450_1/tzwnq7fu8gl2cc942ftxjfumug86tluq.webp',
-price: 300,
-category: 'motherboard',
-discription: 'information',
+name: 'Banana',
+img: 'https://avatars.mds.yandex.net/i?id=3c45818e01a1378bdf4b4dafcae13ebd_sr-5237670-images-thumbs&n=13',
+price: 15,
+category: 'Fruits',
+discription: 'Banana is the name of the edible fruit of the cultivated plants of the genus Banana; usually these include Musa acuminata ',
 publish_at: '27.11.2024'
     },
     {
         id: 2,
-        name: 'AMD Ryzen 7 5700X OEM',
-        img: 'https://ants.kz/upload/resize_cache/webp/iblock/542/450_450_1/v35oy7vgvk880q13ywpi8a7na0bes4r8.webp',
-        price: 200,
-        category: 'CPU',
-        discription: 'information',
+        name: 'Raspberry',
+        img: 'https://avatars.mds.yandex.net/i?id=122c5ae05540ac137187133a2f6cab16_sr-5330739-images-thumbs&n=13',
+        price: 10,
+        category: 'berries',
+        discription: 'Raspberry, or Blackberry, or Malinnik, or Rubus is a large genus of plants in the Rosaceae family, which includes many popular berry crops',
         publish_at: '28.11.2024'
             },
             {
             id: 3,
-            name: 'Kingston Fury Beast Black EXPO',
-            img: 'https://ants.kz/upload/resize_cache/webp/iblock/a12/450_450_1/llw9pbl326cbubi7h2fwa3z9sh6l067s.webp',
-            price: 200,
-            category: 'RAM',
-            discription: 'information',
+            name: 'Strawberry',
+            img: 'https://avatars.mds.yandex.net/i?id=833b92d24b549392d0413b1b07cd0de7_sr-5205837-images-thumbs&n=13',
+            price: 12,
+            category: 'berries',
+            discription: 'Strawberry is the name of large-fruited plant species of the genus Strawberry of the Rosaceae family, as well as their fruits.',
              publish_at: '25.11.2024'
             },
             {
             id: 4,
-            name: '24 Gb PNY RTX 3090',
-            img: 'https://ants.kz/upload/resize_cache/webp/iblock/657/450_450_1/pq2tj2p7tzqtd5mkdbmqfxe16knia8sj.webp',
-             price: 2000,
-             category: 'GPU',
-             discription: 'information',
+            name: 'Apple',
+            img: 'https://avatars.mds.yandex.net/i?id=dd893c7e9cb1fc5b050edf93d5699f67_sr-7543894-images-thumbs&n=13',
+             price: 7,
+             category: 'Fruits',
+             discription: 'An apple is a juicy fruit of the apple tree, which is eaten fresh and baked, and serves as a raw material in cooking and for making drinks.',
              publish_at: '26.11.2024'
              },                    
 ]);

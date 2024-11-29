@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import AboutView from '@/views/AboutView.vue';
-import DetailView from '@/views/DetailView.vue';
+
 
 const routes = [
   { path: '/',
@@ -20,6 +20,10 @@ const routes = [
     name: 'cart',
     component: () => import('../views/CartView.vue'),
   },
+  { path: '/order',
+  name: 'order',
+  component: () => import('../views/orderView.vue'),
+},
 ];
 
 const router = createRouter({
